@@ -59,7 +59,7 @@ public class ViewOfTree {
         }
     }
 
-    //For left and right view use depth from root.
+    //For left and right view use findLevel from root.
     public static void leftViewOfTree(TreeNode root, int verticalLevel){
         if (root != null){
             if (!map.containsKey(verticalLevel))
