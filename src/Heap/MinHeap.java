@@ -19,6 +19,10 @@ public class MinHeap<T> {
         this.pq = (T[])new Object[n];
     }
 
+    public MinHeap(){
+        this(1);
+    }
+
     public MinHeap(int n, Comparator<T> comparator) {
         this.heapSize = 0;
         this.pq = (T[])new Object[n];

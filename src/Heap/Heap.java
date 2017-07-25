@@ -13,6 +13,10 @@ public class Heap {
         heapSize = 0;
     }
 
+    public Heap() {
+        this(1);
+    }
+
     public void insert(int key){
         if (heapSize == pq.length -1)
             resize(2*pq.length);
