@@ -9,7 +9,7 @@ package Amazon.FullPrograms;
  * Order does not matter means for n=4 {1 2 1},{2 1 1},{1 1 2} are considered same
  */
 public class CountWaysToReachNthStairWithoutOrder {
-    private static final int coinValues[] = {1,2};
+    private static final int coinValues[] = {1,2,3};
 
     //This is nothing but variation of Coin Change problem.
     public static int countWays(int n){
@@ -28,7 +28,27 @@ public class CountWaysToReachNthStairWithoutOrder {
     }
 
 
+    private static int coinChangeDP(int[] coinValues, int n){
+        int dp [][] = new int[coinValues.length+1][n+1];
+        for(int i=0; i <=coinValues.length; ++i){
+            dp[i][0] =1;
+        }
+
+        for(int i=1; i <= coinValues.length; ++i){
+            for(int j=1; j <=n; ++j){
+                if (j < coinValues[i-1]){
+                    dp[i][j] = dp[i-1][j];
+                } else{
+                    dp[i][j] = dp[i][j-coinValues[i-1]] + dp[i-1][j];
+                }
+            }
+        }
+        return dp[coinValues.length][ n];
+    }
+
+
     public static void main(String args[]){
         System.out.println(countWays(4));
+        System.out.println(coinChangeDP(coinValues, 4));
     }
 }
