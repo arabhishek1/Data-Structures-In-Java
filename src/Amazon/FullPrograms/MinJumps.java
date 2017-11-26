@@ -29,7 +29,7 @@ public class MinJumps {
         int [] minJumps = new int[arr.length];
         minJumps[0] = 0;
         for(int i=1; i < arr.length ; i++){
-            minJumps[i] = Integer.MAX_VALUE-1;
+            minJumps[i] = Integer.MAX_VALUE;
         }
         for(int i=1; i < arr.length; ++i){
             for(int j=0; j <i; ++j){

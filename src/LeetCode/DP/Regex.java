@@ -50,7 +50,7 @@ public class Regex {
 
     public static void main(String[] args) {
         String str = "aab";
-        String pattern = "c*a*b";
+        String pattern = "aab";
         System.out.println(isMatch(str, pattern));
     }
 }

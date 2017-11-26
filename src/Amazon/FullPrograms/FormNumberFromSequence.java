@@ -18,20 +18,6 @@ package Amazon.FullPrograms;
 public class FormNumberFromSequence {
 
     public static int formMinimumNumberFromSequence(char[] chars, int end){
-        String finalString = "";
-        if (chars[0] == 'I')
-            finalString = "12";
-        else
-            finalString = "21";
-        for(int i=1; i < chars.length; ++i){
-            if (chars[i] == 'I'){
-                if (true){
-
-                }
-            } else {
-
-            }
-        }
-        return -1;
+        return 0;
     }
 }
