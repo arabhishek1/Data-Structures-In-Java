@@ -1,4 +1,4 @@
-package len1mazon.FullPrograms;
+package Amazon.FullPrograms;
 
 /**
  * Created by abhishek.ar on 26/02/18.
