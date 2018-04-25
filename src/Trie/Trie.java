@@ -42,9 +42,44 @@ public class Trie<Value> {
         return (pcrawl != null && pcrawl.isEndOfWord);
     }
 
+    //prints all child node for a given Node with the prefix
+    public static void displayContactsUtil(Node node, String prefix){
+        if (node != null) {
+            if (node.isEndOfWord)
+                System.out.println(prefix);
+
+            for (char i = 'a'; i <= 'z'; ++i) {
+                Node nextNode = node.children[i - 'a'];
+                if (nextNode != null)
+                    displayContactsUtil(nextNode, prefix + i);
+            }
+        }
+    }
+
+
+    public static void displayContacts(Node root, String word){
+        String prefix = "";
+        Node prevNode  = root, currentNode = root;
+        boolean flag = true;
+        for(int i=0; i < word.length(); ++i){
+            if (flag) {
+                prefix += word.charAt(i);
+                currentNode = prevNode.children[prefix.charAt(i) - 'a'];
+
+                if (currentNode == null) {
+                    System.out.println("no result found " + prefix);
+                    break;
+                }
+                prevNode = currentNode;
+            }
+        }
+        displayContactsUtil(currentNode, prefix);
+
+    }
+
     public static void main(String[] args) {
-        String keys[] = {"the", "a", "there", "answer", "any",
-                "by", "bye", "their"};
+        String keys[] = {"the", "there", "answer", "any", "a",
+                "by", "bye", "their", "amongst", "amazing", "amount"};
 
         String output[] = {"Not present in trie", "Present in trie"};
 
@@ -53,13 +88,15 @@ public class Trie<Value> {
         for (int i = 0; i < keys.length ; i++)
             insert(keys[i]);
 
-        if(search("the") == true)
-            System.out.println("the --- " + output[1]);
-        else System.out.println("the --- " + output[0]);
+//        if(search("the") == true)
+//            System.out.println("the --- " + output[1]);
+//        else System.out.println("the --- " + output[0]);
+//
+//        if(search("these") == true)
+//            System.out.println("these --- " + output[1]);
+//        else System.out.println("these --- " + output[0]);
 
-        if(search("these") == true)
-            System.out.println("these --- " + output[1]);
-        else System.out.println("these --- " + output[0]);
+        displayContacts(root, "am");
 
     }
 
