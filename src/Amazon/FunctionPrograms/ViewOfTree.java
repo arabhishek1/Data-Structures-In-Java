@@ -87,9 +87,9 @@ public class ViewOfTree {
         root.right.left = new TreeNode(4);
         root.right.right = new TreeNode(25);
         root.right.left.right = new TreeNode(14);
-//        bottomViewOfTree(root, 0);
+        bottomViewOfTree(root, 0);
 //        topViewOfTree(root, 0);
-        leftViewOfTree(root, 0);
+//        leftViewOfTree(root, 0);
 //        rightViewOfTree(root, 0);
         for(Map.Entry entry : map.entrySet()){
             System.out.print(entry.getValue()  + " ");

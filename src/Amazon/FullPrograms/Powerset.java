@@ -37,6 +37,10 @@ public class Powerset {
         }
     }
 
+    public static int getSubsequenceWidth(){
+        return 0;
+    }
+
     public static void main(String[] args) {
         powerset("122");
         for (String str : set) {
