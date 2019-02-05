@@ -1,9 +1,6 @@
 package Heap;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Created by abhishek.ar on 25/07/17.
@@ -93,7 +90,7 @@ public class RearrangeRepeatingChacracters {
     }
 
     public static void main(String[] args) {
-        String str = "aaacc";
+        String str = "bbbb";
         System.out.println(rearrangeString(str));
     }
 }

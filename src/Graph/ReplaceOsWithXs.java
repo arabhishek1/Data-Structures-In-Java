@@ -30,7 +30,7 @@ package Graph;
 public class ReplaceOsWithXs {
 
     public static void replaceOswithXs(char arr[][]){
-        boolean visited[][] = new boolean[arr.length][arr.length];
+        boolean visited[][] = new boolean[arr.length][arr[0].length];
         for(int i=0 ; i <arr.length; ++i){
             for(int j=0; j < arr[0].length; ++j)
                 if (!visited[i][j])
@@ -84,18 +84,20 @@ public class ReplaceOsWithXs {
 
     //Check only for 'O' charcater
     private static boolean isSafe(char[][] arr, boolean[][] visited, int row, int col) {
-        if (row >0 && row < arr.length-1 && col >0 && col < arr[0].length-1 && arr[row][col] == 'O' && !visited[row][col])
-            return true;
+        try {
+            if (row > 0 && row < arr.length - 1 && col > 0 && col < arr[0].length - 1 && arr[row][col] == 'O' && !visited[row][col])
+                return true;
+        } catch (ArrayIndexOutOfBoundsException ex){
+            System.out.println("error for row "+ row + " " + col);
+        }
         return false;
     }
 
     public static void main(String[] args) {
-        char mat[][] = {{'X', 'O', 'X', 'X', 'X', 'X'},
-                        {'X', 'O', 'X', 'X', 'O', 'X'},
-                        {'X', 'X', 'X', 'O', 'O', 'X'},
-                        {'O', 'X', 'X', 'X', 'X', 'X'},
-                        {'X', 'X', 'X', 'O', 'X', 'O'},
-                        {'O', 'O', 'X', 'O', 'O', 'O'}};
+        char mat[][] = 	{{'X','O','X','O','X','O'},
+                        {'O','X','O','X','O','X'},
+                        {'X','O','X','O','X','O'},
+                        {'O','X','O','X','O','X'}};
 
         for(int i=0; i < mat.length; ++i){
             for(int j=0; j < mat[0].length; ++j)
